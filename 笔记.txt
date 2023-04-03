@@ -1,0 +1,55 @@
+1.配置目录缩写 
+    a.首先在craco.config.js里面添加配置项
+        webpack: {
+            alias: {
+                "@": resolve("src"),
+            },
+        },
+    b.需要在tsconfig里面添加配置项
+            "baseUrl": ".",
+            "paths": {
+              "@/*":["src/*"]
+            }
+    c.更新完配置之后需要重新启动一下项目使配置生效
+
+2.配置eslint+prettier
+    a.集成editconfig
+        # http://editorconfig.org
+        root = true
+        [*] # 表示所有文件适用
+        charset = utf-8 # 设置文件字符集为 utf-8
+        indent_style = space # 缩进风格（tab | space）
+        indent_size = 2 # 缩进大小
+        end_of_line = lf # 控制换行类型(lf | cr | crlf)
+        trim_trailing_whitespace = true # 去除行尾的任意空白字符
+        insert_final_newline = true # 始终在文件末尾插入一个新行
+        [*.md] # 表示仅 md 文件适用以下规则
+        max_line_length = off
+        trim_trailing_whitespace = false
+    b.安装prettier    yarn add prettier -D
+        {
+        "useTabs": false,
+        "tabWidth": 2,
+        "printWidth": 80,
+        "singleQuote": true,
+        "trailingComma": "none",
+        "semi": false
+        }
+    c.ignore文件
+        /build/*
+        .local
+        .output.js
+        /node_modules/**
+
+        **/*.svg
+        **/*.sh
+
+        /public/*
+    d.安装eslint 
+        yarn add eslint -D 
+        npx eslint --init  一路回车就行  最后会有ts选项 自己看项目情况来
+    e. yarn add -D eslint-plugin-prettier eslint-config-prettier
+        在eslintrc.js里面添加配置项      'plugin:prettier/recommended'
+        配置完之后会报错 对于和lint不符合的地方
+            
+
