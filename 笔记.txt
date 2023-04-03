@@ -51,5 +51,6 @@
     e. yarn add -D eslint-plugin-prettier eslint-config-prettier
         在eslintrc.js里面添加配置项      'plugin:prettier/recommended'
         配置完之后会报错 对于和lint不符合的地方
-            
+3.css格式化
+    yarn add normalize.css
 

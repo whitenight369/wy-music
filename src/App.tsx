@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { useRoutes } from 'react-router-dom'
+import routes from './router'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-       测试哈哈
-      </header>
-    </div>
-  );
+  return <div className="App">{useRoutes(routes)}</div>
 }
 
-export default App;
+export default App
+
+// 342
